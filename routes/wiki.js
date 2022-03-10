@@ -12,6 +12,7 @@ const {Page} = require('../models')
 router.get('/', (req, res, next) => {
   res.send('got to GET /wiki/')
 });
+
 router.post('/', async(req, res, next) =>{
   const name = req.body.name
   const email = req.body.email
@@ -31,6 +32,22 @@ router.post('/', async(req, res, next) =>{
 router.get('/add', (req, res, next) =>{
   res.send(addPage())
 });
+
+router.get('/:slug', async(req, res, next) => {
+  res.send(`hit dynamic route at ${req.params.slug}`);
+  try{
+
+
+  } catch (err){
+    next(err)
+  }
+});
+
+
+
+
+
+
 
 // console.log(slug('hello 2 jf934+3@ @'))
 
